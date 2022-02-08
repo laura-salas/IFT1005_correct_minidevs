@@ -1,0 +1,9 @@
+
+------------------------
+/home/www-ens/salaslau/public_html/ift1005/tp0/index.html
+
+
+<html> <h1> Ceci est un exemple d'un devoir bien fait</h1> </html>
+
+
+------------------------
