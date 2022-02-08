@@ -1,20 +1,45 @@
-from main import HOMEWORK_SPLITTER, \
-    HOMEWORK_ROOT_PATH, \
-    SEPARATOR, \
-    NAME, \
-    LAST_NAME, \
-    USERNAME, \
-    STUDENT_NUMBER, \
-    ID, \
-    DID_NOT_GIVE_IN_HOMEWORK, \
-    CORRECTIONS_PATH, \
-    write_file, \
-    NO_COMMENT_TO_ADD
+from contextlib import redirect_stdout
+from rejection_criteria import *
+
+USERNAMES_PATH = "usernames.txt"
+
+DEVOIRS_PATH = "devoirs/dev%d.txt"
+CORRECTIONS_PATH = "test/dev%d_corr.txt"
+SEPARATOR = "    "
+
+# SOURCE HOMEWORK FILE STRUCTURE
+HOMEWORK_SPLITTER = "------------------------"  # What separates homeworks in source, if in single file
+HOMEWORK_ROOT_PATH = "/home/www-ens/"  # Path right before the username
+
+# CLASS LIST INPUT COLUMN NAMES
+NAME = "PRENOM"
+LAST_NAME = "NOM"
+STUDENT_NUMBER = "MATRICULE"
+USERNAME = "LOGIN"
+ID = "DGTIC"
+
+# HOMEWORK COMMENTS
+NO_COMMENT_TO_ADD = "Aucune retroaction à fournir"
+DID_NOT_GIVE_IN_HOMEWORK = "Pas soumis de devoir"
+DONE_IMPROPERLY = "Pas de code html dans le devoir/Permission denied/Pas suivi les consignes"
+
+
+def write_file(file_path: str, file_contents: [str]):
+    """
+    Export contents
+    :param file_path: file to write to
+    :param file_contents: contents to write,
+    :return:
+    """
+    with open(file_path, 'w') as f:
+        with redirect_stdout(f):
+            print(file_contents)
 
 
 # "COURS:CODE-PERM:PROG  :NOM :PRENOM:CRED:NAT:NOTE:DEB:SECT:LOGIN:DGTIC:MATRICULE:"
 class Homework:
-    def __init__(self, name: str,
+    def __init__(self,
+                 name: str,
                  text: str,
                  rejection_criteria,
                  automatic_zero: [str],

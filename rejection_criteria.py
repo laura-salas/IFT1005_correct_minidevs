@@ -1,4 +1,4 @@
-from main import DONE_IMPROPERLY, NO_COMMENT_TO_ADD, DID_NOT_GIVE_IN_HOMEWORK
+from main import DONE_IMPROPERLY
 
 
 def tp0(work: [str]) -> (bool, str):
@@ -14,11 +14,17 @@ def tp0(work: [str]) -> (bool, str):
     a = False
     b = False
     comment = ""
+    # check if student did everything correctly in hwk 1
+
     for line in work:
         if "<html>" in line:
             a = True
         if "</html>" in line:
             b = True
+
+    # if missing something, give comment that indicates so
     if not (a or b):
         comment = DONE_IMPROPERLY
+
+    # return pass/fail indicator and comment, if any
     return not (a or b), comment
