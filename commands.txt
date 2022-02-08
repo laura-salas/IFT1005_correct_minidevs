@@ -1,0 +1,4 @@
+find "$(pwd)" /home/www-ens/*/public_html/ift1005/tp0 -name "devoir2.html" > ~/dev2.txt
+
+
+while read p; do   printf "\n\n------------------------\n""$p""\n\n\n"; cat $p; printf "\n"; done < ~/dev2.txt
