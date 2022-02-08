@@ -17,7 +17,7 @@ rejection_criteria.py -> contains methods to help correct individual homeworks,
 USERNAMES_PATH = "usernames.txt"
 
 DEVOIRS_PATH = "devoirs/dev%d.txt"
-CORRECTIONS_PATH = "test/dev%d_corr.txt"
+CORRECTIONS_PATH = "correction/dev%d_corr.txt"
 SEPARATOR = "    "
 
 # SOURCE HOMEWORK FILE STRUCTURE
